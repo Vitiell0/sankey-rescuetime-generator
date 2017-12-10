@@ -25,9 +25,11 @@ git clone https://github.com/Vitiell0/snakey-rescuetime-generator.git
 
 Changing the organization of the sub categories will change how the are arranged on SnakeyMATIC. Try to group them by color in the order that you want them to appear. 
 
-Then copy and paste both the "Main Category Styling" and the "Subcategory Styling" into SnakeyMatic along with the data from the "Snakey" column. 
+An example of the spreadsheet to do this can be found here: https://docs.google.com/spreadsheets/d/15pMdbk9U597BNbXk9uNbRtAvYlNcOK_WH-sezvJt8vY/edit?usp=sharing
 
-8. Post your visualization in http://reddit.com/r/dataisbeautiful
+8. Copy and paste both the "Main Category Styling" and the "Subcategory Styling" into SnakeyMatic along with the data from the "Snakey" column. 
+
+9. Post your visualization in http://reddit.com/r/dataisbeautiful
 
 
 
