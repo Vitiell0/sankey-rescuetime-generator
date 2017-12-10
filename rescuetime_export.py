@@ -12,6 +12,39 @@ year = "2017"
 # You will need to export it for each year that you are doing. Just store the exported file in your working directory. 
 # The file should be named: "RescueTime_Report_All_Categories__2014-01-01.csv"
 
+# finally open up an ipython terminal and copy/paste this entire file
+
+# If you want to change the colors assigned to each category you can edit them here
+category_colors = {
+	#green
+	"Business" : "#40A940",
+	'Communication & Scheduling': "#A2E295",
+
+	#Purple
+	'Software Development': "#9F76C4",
+	'Design & Composition': "#CAB9DA",
+
+	#Teal
+	'Reference & Learning': "#3EC5D4",
+	
+	#Orange
+	'Entertainment': "#FF8C35",
+	'News & Opinion': "#FFC386",
+
+	#Red
+	'Shopping': "#FFA3A0",
+	'Social Networking': "#DC4141",
+
+	#Grey
+	'Uncategorized': "#8C8C8C",
+
+	#Brown
+	'Utilities': "#97675C",
+
+}
+
+
+
 
 query_url = ("https://www.rescuetime.com/anapi/data?key=%s&perspective=rank&restrict_kind=activity&restrict_begin=%s-01-01&restrict_end=%s-12-31&format=json" % (api_key, year, year))
 
@@ -40,35 +73,6 @@ for category in category_titles:
 	one_time = one_category["Time Spent (seconds)"].sum()
 
 	category_times.update({category : one_time})
-
-
-category_colors = {
-	#green
-	"Business" : "#40A940",
-	'Communication & Scheduling': "#A2E295",
-
-	#Purple
-	'Software Development': "#9F76C4",
-	'Design & Composition': "#CAB9DA",
-
-	#Teal
-	'Reference & Learning': "#3EC5D4",
-	
-	#Orange
-	'Entertainment': "#FF8C35",
-	'News & Opinion': "#FFC386",
-
-	#Red
-	'Shopping': "#FFA3A0",
-	'Social Networking': "#DC4141",
-
-	#Grey
-	'Uncategorized': "#8C8C8C",
-
-	#Brown
-	'Utilities': "#97675C",
-
-}
 
 
 # This is used as a cutoff limit for both subcategories and for individual activities
@@ -110,7 +114,8 @@ for index, row in master_df.iterrows():
 	hours = " [" + str(round(row['Time'] / 3600)) + "] " 
 	snakey = row["From"] + hours + row['To']
 
-	if row['To'] == 'Uncategorized':
+	# rescuetime names the category level and subcategory level the same thing "Uncategorized" which causes an error in Snakey
+	if row['From'] == 'Uncategorized':
 		snakey = snakey + " " + "Time"
 
 	row['Snakey'] = snakey
