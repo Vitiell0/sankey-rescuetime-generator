@@ -15,9 +15,9 @@ Export your Rescuetime data and display it as a Snakey visualization.
 git clone https://github.com/Vitiell0/snakey-rescuetime-generator.git
 ```
 
-4. Open rescuetime_export.py and change the "year" variable at the top to the year you want to analyze.
+4. Open rescuetime_export.py and change the "year" variable at the top to the year you want to analyze. Change the "api" variable to your API key from step 1.
 
-5. Open an iPython shell and copy/paste all the code in rescuetime_export.py
+5. Open an iPython shell and copy/paste all the code in rescuetime_export.py and then paste it into iPython and run it. 
 
 6. A new file called "#### rescuetime activities export.csv" will be saved. There is a column in there called "Snakey" that is in the correct format to copy and paste into http://sankeymatic.com/build/
 
