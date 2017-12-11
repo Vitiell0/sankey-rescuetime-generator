@@ -8,6 +8,13 @@ api_key = ""
 # change this for each year you want to export
 year = "2017"
 
+# This is used as a cutoff limit for both subcategories and for individual activities
+# Experiment with different cutoff times to find out what works best for your data.
+# If there are too many activities it is hard to read the snakey diagram
+
+# One hours in seconds (3600) times the number of hours you want the cutoff to be. 
+min_cutoff_time = 3600 * 5
+
 # You can export the subcategory data from this link: https://www.rescuetime.com/browse/categories/by/rank/for/the/year/of/2014-01-01
 # You will need to export it for each year that you are doing. Just store the exported file in your working directory. 
 # The file should be named: "RescueTime_Report_All_Categories__2014-01-01.csv"
@@ -74,13 +81,6 @@ for category in category_titles:
 
 	category_times.update({category : one_time})
 
-
-# This is used as a cutoff limit for both subcategories and for individual activities
-# Experiment with different cutoff times to find out what works best for your data.
-# If there are too many activities it is hard to read the snakey diagram
-
-# One hours in seconds (3600) times the number of hours you want the cutoff to be. 
-min_cutoff_time = 3600 * 5
 
 # dataframe that has the subcat time and the parent category
 cutoff_subcats = subcategories_df[subcategories_df["Time Spent (seconds)"] > min_cutoff_time]
